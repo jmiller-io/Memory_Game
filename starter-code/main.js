@@ -11,6 +11,7 @@ var createBoard = function () {
 		var cardElement = document.createElement('div');
 		cardElement.className = 'card';
 
+		// Adds the Card Elements to the Game Board
 		var gBoard = document.getElementById('game-board');
 		gBoard.appendChild(cardElement);
 
@@ -29,7 +30,9 @@ var isMatch = function (){
 		alert("You found a match!");
 	} else {
 		alert("Sorry, try again.");
-	}
+	};
+
+	// Reset the game board
 };
 
 
@@ -49,41 +52,9 @@ var isTwoCards = function (){
   if (cardsInPlay.length === 2) {
 	 isMatch(cardsInPlay);
 	 cardsInPlay = [];
-  }
+  };
 };
 
 
 // Creates the Game Board
 createBoard(cards);
-
-
-
-
-
-
-/* Unused Code built from previous lessons
-//Compare Queen with King
-
-if (cardTwo === cardFour){
-	alert("You found a match!");
-}
-//Compare Kings
-else if (cardThree === cardFour) {
-	alert("You found a match!")
-}
-//Compare Queens
-else if (cardTwo === cardOne){
-	alert("You found a match!");
-}
-else {
-	alert("Sorry, try again.");
-};
-
-
-//Create Card Variables
-// var cardOne = "queen";
-// var cardTwo = "queen";
-// var cardThree = "king";
-// var cardFour = "king";
-
-*/
