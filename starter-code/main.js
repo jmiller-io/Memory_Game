@@ -33,6 +33,10 @@ var isMatch = function (){
 	};
 
 	// Reset the game board
+	var toClear = document.querySelectorAll('.card');
+	for (var i = 0; i < toClear.length; i ++) {
+		toClear[i].innerHTML = '';	
+	};
 };
 
 
