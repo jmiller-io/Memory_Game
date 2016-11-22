@@ -9,7 +9,7 @@ var cardsInPlay = [];
 
 
 
-// Function for Shuffling cards
+// Function for Shuffling cards using the Fisher-Yates method
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex ;
 
