@@ -55,9 +55,10 @@ var isMatch = function (){
      }, 500);
 	} else {
 		setTimeout(function() {
-     alert("Sorry, try again.")
+     alert("Sorry, try again.");
      }, 500);
 	};
+};
 
 // Reset Game Board Function
 setTimeout(function() {
