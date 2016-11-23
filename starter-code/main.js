@@ -53,21 +53,28 @@ var createBoard = function () {
 var isMatch = function (){
 	if (cardsInPlay[0] === cardsInPlay[1]){
     setTimeout(function() {
-     alert("You found a match!");
+     alert("You found a match!")
      }, 500);
 	} else {
 		setTimeout(function() {
-     alert("Sorry, try again.");
+     alert("Sorry, try again.")
      }, 500);
 	};
 
-	// Reset the game board
-	var toClear = document.querySelectorAll('.card');
-	for (var i = 0; i < toClear.length; i ++) {
-		toClear[i].innerHTML = '';	
-	};
+// Reset Game Board Function
+setTimeout(function() {
+  resetGboard()
+  },1500);
+	
 };
 
+//Reset Game Board Function
+var resetGboard = function () {
+  var toClear = document.querySelectorAll('.card');
+  for (var i = 0; i < toClear.length; i ++) {
+    toClear[i].innerHTML = '';  
+  }
+};
 
 // Determines When Two Cards are Clicked On and "flips" the Card by Assiging an img
 var isTwoCards = function (){
