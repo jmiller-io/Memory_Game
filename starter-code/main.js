@@ -52,9 +52,13 @@ var createBoard = function () {
 // Logic for Determining Card Value Match
 var isMatch = function (){
 	if (cardsInPlay[0] === cardsInPlay[1]){
-		alert("You found a match!");
+    setTimeout(function() {
+     alert("You found a match!");
+     }, 500);
 	} else {
-		alert("Sorry, try again.");
+		setTimeout(function() {
+     alert("Sorry, try again.");
+     }, 500);
 	};
 
 	// Reset the game board
