@@ -2,24 +2,6 @@
 var cards = ["queen","queen","king","king"];
 var cards = shuffle(cards);
 
-// Create CardsinPlay Array
-var cardsInPlay = [];
-
-// Game Score Keeping
-score = 0;
-var scoreElement = document.createElement('div');
-scoreElement.innerHTML = score;
-scoreElement.setAttribute('Id', 'currentScore');
-var gameScore = document.getElementById('game-score');
-gameScore.appendChild(scoreElement);
-
-// Add Score Function
-var addScore = function (tally) {
-  var cScore = document.getElementById('currentScore');
-  score += tally;
-  cScore.innerHTML = score;
-
-};
 
 // Function for Shuffling cards using the Fisher-Yates method
 function shuffle(array) {
@@ -39,7 +21,11 @@ function shuffle(array) {
   }
 
   return array;
-}
+};
+
+
+// Create CardsinPlay Array
+var cardsInPlay = [];
 
 
 // Game Board Creation Function
@@ -70,17 +56,52 @@ var isMatch = function (){
     addScore(1);
 	} else {
 		setTimeout(function() {
-     alert("Sorry, try again.");
-     }, 450);
+      alert("Sorry, try again.");
+    }, 450);
+    setTimeout(function() {
+      selectedCards = document.getElementsByClassName('card');
+      for (var i = 0; i < selectedCards.length; i++){if (selectedCards[i].innerHTML != null){selectedCards[i].innerHTML = ''}};
+      }, 500);  
 	};
-
-
-// Reset Game Board Function
-setTimeout(function() {
-  resetGboard()
-  },1500);
-	
 };
+
+
+// Determines When Two Cards are Clicked On and "flips" the Card by Assigning an img
+var isTwoCards = function (){
+  // Adds card to cardsInPlay array
+  cardsInPlay.push(this.getAttribute('data-card'));
+
+  // Assigns img based on data-card attribute
+  if (this.getAttribute('data-card') === 'king'){
+      this.innerHTML = '<img src="king.jpg" alt="King of the Jungle"/>';
+  } else {
+      this.innerHTML = '<img src="queen.jpg" alt="Queen of the Jungle" />';
+  };
+
+  // Determines when two cards have been clicked, compares them and clears the cardsInPlay array
+  if (cardsInPlay.length === 2) {
+   isMatch(cardsInPlay);
+   cardsInPlay = [];
+  };
+};
+
+
+// Game Score Keeping
+score = 0;
+var scoreElement = document.createElement('div');
+scoreElement.innerHTML = score;
+scoreElement.setAttribute('Id', 'currentScore');
+var gameScore = document.getElementById('game-score');
+gameScore.appendChild(scoreElement);
+
+// Add Score Function
+var addScore = function (tally) {
+  var cScore = document.getElementById('currentScore');
+  score += tally;
+  cScore.innerHTML = score;
+
+};
+
 
 //Reset Game Board Function
 var resetGboard = function () {
@@ -88,25 +109,11 @@ var resetGboard = function () {
   for (var i = 0; i < toClear.length; i ++) {
     toClear[i].innerHTML = '';  
   }
-};
 
-// Determines When Two Cards are Clicked On and "flips" the Card by Assiging an img
-var isTwoCards = function (){
-  // Adds card to cardsInPlay array
-  cardsInPlay.push(this.getAttribute('data-card'));
-
-  // Assigns img based on data-card attribute
-  if (this.getAttribute('data-card') === 'king'){
-  	  this.innerHTML = '<img src="king.jpg" alt="King of the Jungle"/>';
-  } else {
-  	  this.innerHTML = '<img src="queen.jpg" alt="Queen of the Jungle" />';
-  };
-
-  // Determines when two cards have been clicked, compares them and clears the cardsInPlay array
-  if (cardsInPlay.length === 2) {
-	 isMatch(cardsInPlay);
-	 cardsInPlay = [];
-  };
+  // Reset Game Score
+  var cScore = document.getElementById('currentScore');
+  score = 0;
+  cScore.innerHTML = score;
 };
 
 
