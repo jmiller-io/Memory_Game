@@ -1,6 +1,4 @@
-//I'm in the experimental branch, hopefully
-
-// Create and Populate Cards Array
+// Create, Shuffle and Populate Cards Array
 var cards = ["queen","queen","king","king"];
 var cards = shuffle(cards);
 
