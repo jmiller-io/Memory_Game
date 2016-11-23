@@ -66,3 +66,11 @@ img {
 	height: 200px;
 	width: 150px;
 }
+
+#game-score {
+	font-size: 24px;
+}
+
+#currentScore {
+	display: inline-block;
+}

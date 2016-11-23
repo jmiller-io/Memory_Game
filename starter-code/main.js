@@ -5,7 +5,21 @@ var cards = shuffle(cards);
 // Create CardsinPlay Array
 var cardsInPlay = [];
 
+// Game Score Keeping
+score = 0;
+var scoreElement = document.createElement('div');
+scoreElement.innerHTML = score;
+scoreElement.setAttribute('Id', 'currentScore');
+var gameScore = document.getElementById('game-score');
+gameScore.appendChild(scoreElement);
 
+// Add Score Function
+var addScore = function (tally) {
+  var cScore = document.getElementById('currentScore');
+  score += tally;
+  cScore.innerHTML = score;
+
+};
 
 // Function for Shuffling cards using the Fisher-Yates method
 function shuffle(array) {
@@ -52,13 +66,14 @@ var isMatch = function (){
 	if (cardsInPlay[0] === cardsInPlay[1]){
     setTimeout(function() {
      alert("You found a match!")
-     }, 500);
+     }, 450);
+    addScore(1);
 	} else {
 		setTimeout(function() {
      alert("Sorry, try again.");
-     }, 500);
+     }, 450);
 	};
-};
+
 
 // Reset Game Board Function
 setTimeout(function() {
